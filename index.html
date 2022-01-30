@@ -19,6 +19,18 @@ body {
     align-items: center;
 }
 
+.fadeIn {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 150px;
+  color: black;
+  animation: fadeIn linear 3s;
+  -webkit-animation: fadeIn linear 3s;
+  -moz-animation: fadeIn linear 3s;
+  -o-animation: fadeIn linear 3s;
+  -ms-animation: fadeIn linear 3s;
+}
+
 .bottomText {
 	height: 100vh;
     width: 100vw;
@@ -37,11 +49,34 @@ h1 {
     font-weight: 900;
     font-size: 12vw;
 }
-</style>
 
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+</style>
+<div class="fadeIn">
 <div class="container">
     <h1>M0hidlabs</h1>
 </div>
-
-
-
+</div>
