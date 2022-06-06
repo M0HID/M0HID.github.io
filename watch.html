@@ -42,13 +42,6 @@ loadButton.onclick = function() {
   };
   xhr.send();
 };
-
-var load2Button = document.createElement('button');
-load2Button.innerHTML = 'Load2';
-document.body.appendChild(load2Button);
-load2Button.onclick = async function() {
-  videoURL.value = await(await fetch("https://base2.kudasai.gq/mohid/load_watch")).text();
-};
 });
         </script>
     
