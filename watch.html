@@ -1,1 +1,25 @@
-<iframe src="http://www.flixhq.to/" name="" scrolling="No" height="100%" width="100%" style="border: none;"></iframe>
+<html>
+   <head>
+       <script>
+       document.addEventListener("DOMContentLoaded", function() {
+
+var videoPlayer = document.createElement('video');
+videoPlayer.setAttribute('controls', '');
+videoPlayer.setAttribute('autoplay', '');
+videoPlayer.setAttribute('width', '640');
+videoPlayer.setAttribute('height', '480');
+document.body.appendChild(videoPlayer);
+var videoUrl = document.createElement('input');
+videoUrl.setAttribute('type', 'text');
+videoUrl.setAttribute('value', 'http://www.w3schools.com/html/mov_bbb.mp4');
+document.body.appendChild(videoUrl);
+var videoButton = document.createElement('button');
+videoButton.innerHTML = 'Play';
+document.body.appendChild(videoButton);
+videoButton.addEventListener('click', function() {
+ videoPlayer.setAttribute('src', videoUrl.value);
+});
+});
+       </script>
+   </head>
+   </html>
