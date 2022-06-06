@@ -1,7 +1,8 @@
+
 <html>
-   <head>
-       <script>
-       document.addEventListener("DOMContentLoaded", function() {
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
 var videoPlayer = document.createElement('video');
 videoPlayer.setAttribute('controls', '');
@@ -9,17 +10,45 @@ videoPlayer.setAttribute('autoplay', '');
 videoPlayer.setAttribute('width', '640');
 videoPlayer.setAttribute('height', '480');
 document.body.appendChild(videoPlayer);
-var videoUrl = document.createElement('input');
-videoUrl.setAttribute('type', 'text');
-videoUrl.setAttribute('value', 'http://www.w3schools.com/html/mov_bbb.mp4');
-document.body.appendChild(videoUrl);
+var videoURL = document.createElement('input');
+videoURL.setAttribute('type', 'text');
+videoURL.setAttribute('value', 'http://www.w3schools.com/html/mov_bbb.mp4');
+document.body.appendChild(videoURL);
 var videoButton = document.createElement('button');
 videoButton.innerHTML = 'Play';
 document.body.appendChild(videoButton);
-videoButton.addEventListener('click', function() {
- videoPlayer.setAttribute('src', videoUrl.value);
+videoButton.onclick = function() {
+  videoPlayer.setAttribute('src', videoURL.value);
+};
+
+var saveButton = document.createElement('button');
+saveButton.innerHTML = 'Save';
+document.body.appendChild(saveButton);
+saveButton.onclick = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://base2.kudasai.gq/mohid/save_watch', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send(videoURL.value);
+};
+
+var loadButton = document.createElement('button');
+loadButton.innerHTML = 'Load';
+document.body.appendChild(loadButton);
+loadButton.onclick = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://base2.kudasai.gq/mohid/load_watch', true);
+  xhr.onload = function() {
+    videoURL.value = xhr.responseText;
+  };
+  xhr.send();
+};
+
+var load2Button = document.createElement('button');
+load2Button.innerHTML = 'Load2';
+document.body.appendChild(load2Button);
+load2Button.onclick = async function() {
+  videoURL.value = await(await fetch("https://base2.kudasai.gq/mohid/load_watch")).text();
+};
 });
-});
-       </script>
-   </head>
-   </html>
+        </script>
+    
