@@ -75,7 +75,18 @@ h1 {
   100% {opacity:1;}
 }
 </style>
-<div class="fadeIn">
+<script>
+  var fade = function(e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var opacity = 1 - Math.sqrt(Math.pow(x - w / 2, 2) + Math.pow(y - h / 2, 2)) / Math.sqrt(Math.pow(w / 2, 2) + Math.pow(h / 2, 2));
+    document.getElementById("m").style.opacity = opacity;
+  };
+  document.addEventListener('mousemove', fade);
+</script>
+<div id="m">
 <div class="container">
     <h1>
     	<a href="https://guac.kudasai.gq">M.R.<a>
